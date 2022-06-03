@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-if __ name__ == "__main__":
-    import sys
-    i = len(sys.argv) - 1
-
-    if i == 0:
-        print("{:d} arguements.".format(i))
-    elif i == 1:
-        print("{:d} arguement:".format(i))
+def print_arg(argv):
+    n = len(argv) - 1
+    if n == 0:
+        print("{:d} arguement.".format(n))
+        return
     else:
-        print("{:d} arguements:".format(i))
+        if n == 1:
+            print("{:d} arguement:".format(n))
 
-        if i >= 1:
-            i = 0
-            for arg in sys.argv:
-                if i != 0:
-                    print("{:d}: {:s}".format(i, arg))
+        else:
+            print("{:d} arguement:".format(n))
+            i = 1
+            while i <= n:
+                print("{:d}: {:s}".format(i, argv[i]))
                 i += 1
+
+if __name__ == "__main__":
+    import sys
+    print_arg(sys.argv)
